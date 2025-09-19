@@ -1,4 +1,4 @@
-package com.example.ezycollect.core.domain.payment.valueobject;
+package com.ezycollect.core.domain.payment.valueobject;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;

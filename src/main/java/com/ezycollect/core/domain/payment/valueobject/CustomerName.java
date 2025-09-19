@@ -1,4 +1,4 @@
-package com.example.ezycollect.core.domain.payment.valueobject;
+package com.ezycollect.core.domain.payment.valueobject;
 
 public class CustomerName {
   private final String firstName;
