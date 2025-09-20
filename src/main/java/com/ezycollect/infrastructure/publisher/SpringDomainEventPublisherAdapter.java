@@ -21,7 +21,7 @@ public class SpringDomainEventPublisherAdapter implements DomainEventPublisherPo
   @Override
   public void publish(Object event) {
     if (eventPublisher != null) {
-      logger.info("Publishing domain event: " + event.getClass().getSimpleName());
+      logger.info("Publishing event: " + event.getClass().getSimpleName());
       eventPublisher.publishEvent(event);
     } else {
       logger.warning("Event publisher not initialized, cannot publish event: " + event.getClass().getSimpleName());

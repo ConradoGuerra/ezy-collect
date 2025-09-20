@@ -8,7 +8,7 @@ import com.ezycollect.core.domain.payment.valueobject.ZipCode;
 import com.ezycollect.infrastructure.publisher.SpringDomainEventPublisherAdapter;
 
 public class PaymentApplicationService {
-  private SpringDomainEventPublisherAdapter paymentEventPublisher = new SpringDomainEventPublisherAdapter();
+  private SpringDomainEventPublisherAdapter paymentEventPublisher;
 
   public PaymentApplicationService(SpringDomainEventPublisherAdapter paymentEventPublisher) {
     this.paymentEventPublisher = paymentEventPublisher;
