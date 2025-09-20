@@ -3,6 +3,7 @@ package com.ezycollect.application.service;
 import com.ezycollect.application.dto.PaymentRequest;
 import com.ezycollect.core.domain.payment.aggregate.PaymentAggregate;
 import com.ezycollect.core.domain.payment.event.PaymentCreatedEvent;
+import com.ezycollect.infrastructure.database.repository.PaymentRepository;
 import com.ezycollect.infrastructure.encryption.MostSimpleEncryptionService;
 import com.ezycollect.infrastructure.publisher.SpringDomainEventPublisherAdapter;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,10 +23,13 @@ class PaymentApplicationServiceTest {
   @Mock
   private SpringDomainEventPublisherAdapter mockEventPublisher;
 
+  @Mock
+  private PaymentRepository mockRepository;
+
   @BeforeEach
   void setUp() {
     MockitoAnnotations.openMocks(this);
-    paymentApplicationService = new PaymentApplicationService(mockEventPublisher);
+    paymentApplicationService = new PaymentApplicationService(mockEventPublisher, mockRepository);
   }
 
   @Test
