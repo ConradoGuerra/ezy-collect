@@ -17,8 +17,8 @@ public class Webhook {
     return id;
   }
 
-  public URL getUrl() {
-    return url;
+  public String getUrl() {
+    return url.getUrl();
   }
 
 }
