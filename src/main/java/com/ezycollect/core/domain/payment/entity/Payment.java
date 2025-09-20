@@ -1,4 +1,3 @@
-
 package com.ezycollect.core.domain.payment.entity;
 
 import java.util.UUID;
@@ -7,7 +6,7 @@ import com.ezycollect.core.domain.payment.valueobject.CardNumber;
 import com.ezycollect.core.domain.payment.valueobject.CustomerName;
 import com.ezycollect.core.domain.payment.valueobject.ZipCode;
 
-class Payment {
+public class Payment {
   private final UUID id;
   private final CustomerName customerName;
   private final ZipCode zipCode;
