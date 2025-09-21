@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/webhooks")
-@CrossOrigin(origins = "*")
 public class WebhookController {
   private final WebhookApplicationService webhookApplicationService;
 
