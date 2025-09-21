@@ -14,6 +14,7 @@ The project is divided into two main parts:
 ### Description
 
 The backend is a Spring Boot application responsible for handling payment processing and webhook management.
+For more information, check the [backend README](./backend/README.md)
 
 ### Technologies Used
 
@@ -33,6 +34,7 @@ The backend is a Spring Boot application responsible for handling payment proces
 ### Description
 
 The frontend is a Next.js application that provides a user interface to interact with the EzyCollect backend services.
+For more information, check the [frontend README](./frontend/README.md)
 
 ### Technologies Used
 
@@ -70,4 +72,4 @@ To run this application, ensure you have Docker installed on your system.
 3.  **Manage Better Errors and Status Codes and Messages**: Enhance error handling across the application, providing more descriptive error messages and appropriate HTTP status codes for better API communication and debugging.
 4.  **Observability**: Implement comprehensive logging and tracing to have better monitoring and debugging.
 5.  **Tests**: Improve tests coverage to 100% and creation of integration (databases, controllers) and e2e tests.
-6.  **Front-end**: Basically refactor all the front-end, which is currently too simple and does not have any test.
+6.  **Front-end**: Basically refactor all the front-end, including README, which is currently too simple and does not have any test.
