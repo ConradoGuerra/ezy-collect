@@ -14,14 +14,14 @@ The application will start on port `8080`.
 
 ## OpenAPI Specification
 
-The API endpoints are documented below. The base URL for the API is `http://localhost:8080/swagger-ui`.
+The API endpoints are documented below. The base URL for the API is `http://localhost:8080`. You can access the Swagger UI at `http://localhost:8080/swagger-ui`.
 
 ### Payment Endpoints
 
 **Create Payment**
 
 - `POST /api/payments`
-  - **Description:** Creates a new payment. After creating a payment, all the webhooks registered will be notified about the creation.
+  - **Description:** Creates a new payment. After creating a payment, all registered webhooks will be notified.
   - **Request Body Example (PaymentRequest):**
     ```json
     {
@@ -53,7 +53,7 @@ The API endpoints are documented below. The base URL for the API is `http://loca
   - **Response Body Example (WebhookResponse):**
     ```json
     {
-        "message": "Webhook created"
+      "message": "Webhook created"
     }
     ```
 
