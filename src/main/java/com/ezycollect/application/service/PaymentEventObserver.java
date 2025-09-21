@@ -3,9 +3,9 @@ package com.ezycollect.application.service;
 import com.ezycollect.core.domain.payment.event.PaymentCreatedEvent;
 import com.ezycollect.core.domain.webhook.entity.Webhook;
 import com.ezycollect.core.domain.webhook.repository.WebhookRepository;
-import com.ezycollect.utils.JsonConverter;
 
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,21 +17,20 @@ public class PaymentEventObserver {
   private static final Logger logger = Logger.getLogger(PaymentEventObserver.class.getName());
 
   private final WebhookRepository webhookRepository;
+  private final PaymentWebhookService webhookService;
 
-  public PaymentEventObserver(WebhookRepository webhookRepository) {
+  public PaymentEventObserver(WebhookRepository webhookRepository, PaymentWebhookService webhookService) {
     this.webhookRepository = webhookRepository;
+    this.webhookService = webhookService;
   }
 
   @EventListener
+  @Async
   public void handlePaymentCreatedEvent(PaymentCreatedEvent event) {
     List<Webhook> webhooks = webhookRepository.findWebhooks();
     logger.info("Found " + webhooks.size() + " webhooks to notify.");
     for (Webhook webhook : webhooks) {
-      try {
-        logger.info("Sending event to webhook: " + webhook.getUrl() + " with payload: " + JsonConverter.toJson(event));
-      } catch (Exception e) {
-        logger.warning("Failed to send event to webhook: " + webhook.getUrl() + " - " + e.getMessage());
-      }
+      webhookService.sendWebhook(webhook.getUrl(), event);
     }
   }
 }
