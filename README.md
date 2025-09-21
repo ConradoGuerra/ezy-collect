@@ -13,8 +13,13 @@ The project is divided into two main parts:
 
 ### Description
 
-The backend is a Spring Boot application responsible for handling payment processing and webhook management.
-For more information, check the [backend README](./backend/README.md)
+The backend is a Spring Boot application responsible for handling payment processing and webhook management.  
+For more information, check the [backend README](./backend/README.md).
+
+> To be able to receive the notifications from the webhook, follow the instructions below:
+>
+> When testing locally **without Docker**, create the webhooks URL as `http://localhost:<port>`.
+> When testing **with the containers running**, create the webhooks URL as `http://host.docker.internal:<port>`.
 
 ### Technologies Used
 
@@ -33,8 +38,8 @@ For more information, check the [backend README](./backend/README.md)
 
 ### Description
 
-The frontend is a Next.js application that provides a user interface to interact with the EzyCollect backend services.
-For more information, check the [frontend README](./frontend/README.md)
+The frontend is a Next.js application that provides a user interface to interact with the EzyCollect backend services.  
+For more information, check the [frontend README](./frontend/README.md).
 
 ### Technologies Used
 
@@ -54,7 +59,7 @@ To run this application, ensure you have Docker installed on your system.
 
 ## Launch
 
-1.  **Launch the application**:
+1.  **Launch the application**:  
     Navigate to the root directory of the project (where `docker-compose.yaml` is located) and run:
 
     ```bash

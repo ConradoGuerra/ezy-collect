@@ -2,11 +2,15 @@ package com.ezycollect.application.service;
 
 import com.ezycollect.core.domain.payment.event.PaymentCreatedEvent;
 import com.ezycollect.utils.JsonConverter;
+
+import org.springframework.http.MediaType;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Recover;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 
 import java.util.logging.Logger;
 
@@ -30,8 +34,11 @@ public class PaymentWebhookService {
       return;
     }
 
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    HttpEntity<String> entity = new HttpEntity<>(payload, headers);
     logger.info("Sending POST request to webhook: " + url + ", body: " + payload);
-    restTemplate.postForObject(url, payload, String.class);
+    restTemplate.postForObject(url, entity, String.class);
   }
 
   @Recover
