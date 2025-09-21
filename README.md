@@ -9,24 +9,6 @@ The project is divided into two main parts:
 - **backend**: A Spring Boot application that handles the business logic, data storage, and API endpoints.
 - **frontend**: A Next.js application that provides a user interface for interacting with the backend.
 
-## Getting Started with Docker Compose
-
-To run this application using Docker Compose, ensure you have Docker installed on your system.
-
-1.  **Prerequisites**:
-    - Docker Desktop (or Docker Engine) installed and running.
-
-2.  **Launch the application**:
-    Navigate to the root directory of the project (where `docker-compose.yaml` is located) and run:
-
-    ```bash
-    docker compose up -d
-    ```
-
-3.  **Access the application**:
-    - **Frontend**: Once the services are up, you can access the frontend application in your browser at `http://localhost:3000`.
-    - **Backend**: The backend API will be available at `http://localhost:8080`.
-
 ## Backend
 
 ### Description
@@ -40,12 +22,6 @@ The backend is a Spring Boot application responsible for handling payment proces
 - Maven
 - PostgreSQL
 - Flyway (database migrations)
-
-### How to Launch
-
-1.  Navigate to the `backend/` directory: `cd backend`
-2.  Build the project: `mvn clean install`
-3.  Run the application: `mvn spring-boot:run`
 
 ### Requirements
 
@@ -65,18 +41,31 @@ The frontend is a Next.js application that provides a user interface to interact
 - TypeScript
 - npm
 
-### How to Launch
-
-1.  Navigate to the `frontend/` directory: `cd frontend`
-2.  Install dependencies: `npm install`
-3.  Build the project: `npm run build`
-4.  Start the application: `npm start`
-
 ### Requirements
 
 - Node.js (LTS version recommended)
 - npm
 
-## Overall Project Launch
+## Requirements
 
-To run the complete EzyCollect application, you need to launch both the backend and frontend services separately as described above. Ensure the backend is running before accessing the frontend, as the frontend will communicate with the backend API.
+To run this application, ensure you have Docker installed on your system.
+
+## Launch
+
+1.  **Launch the application**:
+    Navigate to the root directory of the project (where `docker-compose.yaml` is located) and run:
+
+    ```bash
+    docker compose up -d
+    ```
+
+2.  **Access the application**:
+    - **Frontend**: Once the services are up, you can access the frontend application in your browser at `http://localhost:3000`.
+    - **Backend**: The backend API will be available at `http://localhost:8080`.
+
+## Improvements to add to backend application:
+
+1.  **Validations to Value Objects**: Implement a better validation mechanisms within value objects to ensure data integrity at the core domain level.
+2.  **Change Uniqueness at Tables Payments and Webhooks**: Modify the uniqueness constraints in the `payments` and `webhooks` tables to allow for single webhooks and single payers with the same card, ensuring proper handling of these entities.
+3.  **Manage Better Errors and Status Codes and Messages**: Enhance error handling across the application, providing more descriptive error messages and appropriate HTTP status codes for better API communication and debugging.
+4.  **Observability**: Implement comprehensive logging and tracing to have better monitoring and debugging.
