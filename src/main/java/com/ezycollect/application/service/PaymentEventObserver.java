@@ -3,6 +3,8 @@ package com.ezycollect.application.service;
 import com.ezycollect.core.domain.payment.event.PaymentCreatedEvent;
 import com.ezycollect.core.domain.webhook.entity.Webhook;
 import com.ezycollect.core.domain.webhook.repository.WebhookRepository;
+import com.ezycollect.utils.JsonConverter;
+
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +28,7 @@ public class PaymentEventObserver {
     logger.info("Found " + webhooks.size() + " webhooks to notify.");
     for (Webhook webhook : webhooks) {
       try {
-        logger.info("Sending event to webhook: " + webhook.getUrl() + " with payload: " + event.getPayment().getId());
+        logger.info("Sending event to webhook: " + webhook.getUrl() + " with payload: " + JsonConverter.toJson(event));
       } catch (Exception e) {
         logger.warning("Failed to send event to webhook: " + webhook.getUrl() + " - " + e.getMessage());
       }
