@@ -1,11 +1,31 @@
-# EzyCollect Project
+# ezyCollect
 
-This repository contains both the backend and frontend components of the EzyCollect application.
+This is a simple application to manage payments and webhooks.
 
 ## Project Structure
 
-- `backend/`: Contains the Spring Boot backend application.
-- `frontend/`: Contains the Next.js frontend application.
+The project is divided into two main parts:
+
+- **backend**: A Spring Boot application that handles the business logic, data storage, and API endpoints.
+- **frontend**: A Next.js application that provides a user interface for interacting with the backend.
+
+## Getting Started with Docker Compose
+
+To run this application using Docker Compose, ensure you have Docker installed on your system.
+
+1.  **Prerequisites**:
+    - Docker Desktop (or Docker Engine) installed and running.
+
+2.  **Launch the application**:
+    Navigate to the root directory of the project (where `docker-compose.yaml` is located) and run:
+
+    ```bash
+    docker compose up -d
+    ```
+
+3.  **Access the application**:
+    - **Frontend**: Once the services are up, you can access the frontend application in your browser at `http://localhost:3000`.
+    - **Backend**: The backend API will be available at `http://localhost:8080`.
 
 ## Backend
 
