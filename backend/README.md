@@ -1,6 +1,11 @@
-# EzyCollect Backend Service
+# EzyCollect Backend Application
 
 This project provides a backend service for managing payments and webhooks.
+
+## Prerequisites
+
+- Java Development Kit (JDK) 17 or higher
+- Apache Maven
 
 ## How to Run
 
@@ -56,4 +61,3 @@ The API endpoints are documented below. The base URL for the API is `http://loca
       "message": "Webhook created"
     }
     ```
-
