@@ -63,7 +63,7 @@ To run this application, ensure you have Docker installed on your system.
     - **Frontend**: Once the services are up, you can access the frontend application in your browser at `http://localhost:3000`.
     - **Backend**: The backend API will be available at `http://localhost:8080`.
 
-## Improvements to add to backend application:
+## Improvements to be made:
 
 1.  **Validations to Value Objects**: Implement a better validation mechanisms within value objects to ensure data integrity at the core domain level.
 2.  **Change Uniqueness at Tables Payments and Webhooks**: Modify the uniqueness constraints in the `payments` and `webhooks` tables to allow for single webhooks and single payers with the same card, ensuring proper handling of these entities.
