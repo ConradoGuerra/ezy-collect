@@ -18,8 +18,8 @@ For more information, check the [backend README](./backend/README.md).
 
 > To be able to receive the notifications from the webhook, follow the instructions below:
 >
-> When testing locally **without Docker**, create the webhooks URL as `http://localhost:<port>`.
-> When testing **with the containers running**, create the webhooks URL as `http://host.docker.internal:<port>`.
+> - When testing locally **without Docker**, create the webhooks URL as `http://localhost:<port>`.
+> - When testing **with the containers running**, create the webhooks URL as `http://host.docker.internal:<port>`.
 
 ### Technologies Used
 
