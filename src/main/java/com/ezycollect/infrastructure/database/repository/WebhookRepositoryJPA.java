@@ -5,6 +5,9 @@ import com.ezycollect.core.domain.webhook.repository.WebhookRepository;
 import com.ezycollect.infrastructure.database.mapper.WebhookMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class WebhookRepositoryJPA implements WebhookRepository {
 
@@ -20,5 +23,12 @@ public class WebhookRepositoryJPA implements WebhookRepository {
   public void save(Webhook webhook) {
     var webhookEntity = webhookMapper.toEntity(webhook);
     jpaWebhookRepository.save(webhookEntity);
+  }
+
+  @Override
+  public List<Webhook> findWebhooks() {
+    return jpaWebhookRepository.findAll().stream()
+        .map(webhookMapper::toDomain)
+        .collect(Collectors.toList());
   }
 }

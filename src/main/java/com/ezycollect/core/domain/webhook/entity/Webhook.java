@@ -13,6 +13,11 @@ public class Webhook {
     this.url = url;
   }
 
+  public Webhook(UUID id, URL url) {
+    this.id = id;
+    this.url = url;
+  }
+
   public UUID getId() {
     return id;
   }
